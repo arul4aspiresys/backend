@@ -5,7 +5,7 @@ export const toOrder = (input: OrderOutput): Order => {
     return {
         id: input.id,
         customerID: input.customerID,
-        totalamount: input.totalamount,
+        totalAmount: input.totalAmount,
         paymentMethod: input.paymentMethod,
         createdAt: input.createdAt,
         updatedAt: input.updatedAt,

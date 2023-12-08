@@ -1,7 +1,7 @@
 export interface Order {
     id: number;    
     customerID: number;
-    totalamount: number;
+    totalAmount: number;
     paymentMethod: string;
     createdAt?: Date;
     updatedAt?: Date;

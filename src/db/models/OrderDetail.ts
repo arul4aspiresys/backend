@@ -1,6 +1,5 @@
 import { Model, DataTypes, Optional } from "sequelize";
 import dbConnection from "../config";
-import { Order } from ".";
 
 interface OrderDetailAttributes {
     orderID: number;
@@ -41,5 +40,5 @@ OrderDetail.init({
     sequelize: dbConnection,
     paranoid: true
 });
-OrderDetail.belongsTo(Order);
+// OrderDetail.belongsTo(Order);
 export default OrderDetail;

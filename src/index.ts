@@ -10,11 +10,6 @@ import routes from './api/routes';
 import dbInit from './db/init';
 
 dotenv.config();
-console.log('DB Initialization started...');
-dbInit().then(() => {
-    console.log('DB sync completed');
-});
-console.log('DB init done...');
 
 const port: number = parseInt(process.env.PORT as string, 10) || 3000;
 
@@ -27,7 +22,10 @@ export const get = () => {
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    app.use('/api/v1', routes);            
+    dbInit().then(() => {
+        console.log('DB sync completed');
+        app.use('/api/v1', routes);            
+    });
     return app;
 };
 
