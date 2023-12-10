@@ -22,10 +22,10 @@ export const get = () => {
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    dbInit().then(() => {
-        console.log('DB sync completed');
-        app.use('/api/v1', routes);            
-    });
+    // dbInit().then(() => {
+    //     console.log('DB sync completed');
+    // });
+    app.use('/api/v1', routes);            
     return app;
 };
 

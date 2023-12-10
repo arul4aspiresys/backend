@@ -6,10 +6,12 @@ export const create = async (payload: OrderInput): Promise<OrderOutput> => {
 }
 
 export const getById = async(id: number): Promise<OrderOutput> => {
-    const order = await Order.findByPk(id);
+    const order = await Order.findByPk(id, {
+        include: 'orderDetails'
+    });
     if(!order) {
         throw new Error('Order not found');        
-    }
+    }    
     return order;
 }
 

@@ -1,3 +1,5 @@
+import { Order } from "./order.interface";
+
 export interface Customer {
     id: number;
     name: string;
@@ -5,4 +7,5 @@ export interface Customer {
     createdAt?: Date;
     updatedAt?: Date;
     deletedAt?: Date;
+    orders: Order[];
 }

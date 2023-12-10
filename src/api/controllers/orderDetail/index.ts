@@ -7,6 +7,10 @@ export const create = async (payload: CreateOrderDetailDTO): Promise<OrderDetail
     return mapper.toOrderDetail(await OrderDetailDTO.create(payload));
 }
 
+export const bulkCreate = async (payload: CreateOrderDetailDTO[]): Promise<OrderDetail[]> => {
+    return ((await OrderDetailDTO.bulkCreate(payload)).map(mapper.toOrderDetail));
+}
+
 export const getByOrderID = async (id: number): Promise<OrderDetail> => {
     return mapper.toOrderDetail(await OrderDetailDTO.getByOrderID(id));
 }

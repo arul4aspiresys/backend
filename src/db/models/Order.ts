@@ -8,7 +8,7 @@ interface OrderAttributes {
     paymentMethod: string;
     createdAt?: Date;
     updatedAt?: Date;
-    deletedAt?: Date;
+    deletedAt?: Date;    
 }
 
 export interface OrderInput extends Optional<OrderAttributes, 'id'> {}
@@ -18,8 +18,8 @@ class Order extends Model<OrderAttributes, OrderInput> implements OrderAttribute
     declare id: number;    
     declare customerID: number;
     declare totalAmount: number;
-    declare paymentMethod: string;
-
+    declare paymentMethod: string;  
+    
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
     public readonly deletedAt!: Date;
@@ -43,11 +43,10 @@ Order.init({
     paymentMethod: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },    
 },{
     sequelize: dbConnection,
     paranoid: true
 });
-// Order.belongsTo( Customer);
-// Order.hasMany(OrderDetail);
+
 export default Order;

@@ -6,11 +6,11 @@ export const create = async (payload: CustomerInput): Promise<CustomerOutput> =>
 }
 
 export const getAll = async (): Promise<CustomerOutput[]> => {
-    return await Customer.findAll({})
+    return await Customer.findAll();
 }
 
 export const getById = async (id: number): Promise<CustomerOutput> => {
-    const customer = await Customer.findByPk(id);
+    const customer = await Customer.findByPk(id, { include: 'orders' });
     if(!customer) {
         throw new Error('Customer not found');
     }

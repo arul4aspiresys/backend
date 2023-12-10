@@ -1,3 +1,5 @@
+import { OrderDetail } from "./orderDetail.interface";
+
 export interface Order {
     id: number;    
     customerID: number;
@@ -6,4 +8,5 @@ export interface Order {
     createdAt?: Date;
     updatedAt?: Date;
     deletedAt?: Date;
+    orderDetails?: OrderDetail[];
 }

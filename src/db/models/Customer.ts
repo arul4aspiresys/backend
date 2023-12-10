@@ -44,6 +44,4 @@ Customer.init({
     paranoid: true
 });
 
-// Customer.hasMany(Order);
-
 export default Customer;

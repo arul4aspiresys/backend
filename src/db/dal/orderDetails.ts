@@ -5,6 +5,11 @@ export const create = async (payload: OrderDetailInput): Promise<OrderDetailOutp
     return await OrderDetail.create(payload);
 }
 
+export const bulkCreate = async (payload: OrderDetailInput[]): Promise<OrderDetailOutput[]> => {
+    const result = await OrderDetail.bulkCreate(payload);
+    return result;
+}
+
 export const getByOrderID = async (orderID: number): Promise<OrderDetailOutput> => {
     const orderDetail = await OrderDetail.findOne({
         where: {
