@@ -5,7 +5,7 @@ import productsRouter, {} from './products.route';
 
 const router = Router();
 
-router.use('/customer', customersRouter);
+router.use('/customers', customersRouter);
 router.use('/products', productsRouter);
 router.use('/orders', ordersRouter);
 

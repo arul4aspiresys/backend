@@ -19,7 +19,9 @@ export const toCustomer = (input: CustomerInstance): Customer => {
                 id: order.id,
                 totalAmount: order.totalAmount,
                 paymentMethod: order.paymentMethod,
-                customerID: order.customerID,                
+                customerID: order.customerID, 
+                createdAt: order.createdAt,
+                updatedAt: order.updatedAt               
             }
         })
     }

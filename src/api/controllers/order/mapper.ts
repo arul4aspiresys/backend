@@ -21,6 +21,8 @@ export const toOrder = (input: OrderInstance): Order => {
                 orderID: detail.orderID,
                 productID: detail.productID,
                 quantity: detail.quantity,
+                createdAt: detail.createdAt,
+                updatedAt: detail.updatedAt,
             }
         }),
     }

@@ -13,7 +13,7 @@ ordersRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 ordersRouter.post('/', async (req: Request, res: Response) => {
-    const orderPayload: CreateOrderDTO = req.body.order;
+    const orderPayload: CreateOrderDTO = req.body;
     const orderDetailsPayload: CreateOrderDetailDTO[] = req.body.orderDetails;
 
     const orderResult = await OrderController.create(orderPayload);
