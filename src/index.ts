@@ -8,6 +8,8 @@ import helmet from 'helmet';
 
 import routes from './api/routes';
 import dbInit from './db/init';
+import { errorHandler } from './errors/error-handler';
+import { BadRouteError } from './errors/bad-route-error';
 
 dotenv.config();
 
@@ -25,7 +27,11 @@ export const get = () => {
     // dbInit().then(() => {
     //     console.log('DB sync completed');
     // });
-    app.use('/api/v1', routes);            
+    app.use('/api/v1', routes);
+    app.all('/*', () => {
+        throw new BadRouteError();
+    }); 
+    app.use(errorHandler);           
     return app;
 };
 
